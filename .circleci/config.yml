@@ -31,11 +31,6 @@ jobs:
           name: Install API Dependencies
           command: |
             npm run api:install
-      # Lint the frontend
-      # - run:
-      #     name: Front-End Lint
-      #     command: |
-      #       npm run frontend:lint
       # Build the frontend app
       - run:
           name: Front-End Build
@@ -54,7 +49,7 @@ jobs:
     steps:
       - node/install:
           node-version: "14.15"
-      - eb/setup
+      # - eb/setup
       - aws-cli/setup
       - checkout
       - run:
