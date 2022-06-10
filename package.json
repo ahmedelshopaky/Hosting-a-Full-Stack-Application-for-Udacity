@@ -1,16 +1,17 @@
 {
   "scripts": {
-    "frontend:install": "cd udagram-frontend && npm install -f",
-    "frontend:start": "cd udagram-frontend && npm run start",
-    "frontend:build": "cd udagram-frontend && npm run build",
-    "frontend:test": "cd udagram-frontend && npm run test",
-    "frontend:e2e": "cd udagram-frontend && npm run e2e",
-    "frontend:lint": "cd udagram-frontend && npm run lint",
-    "frontend:deploy": "cd udagram-frontend && npm run deploy",
-    "api:install": "cd udagram-api && npm install .",
-    "api:build": "cd udagram-api && npm run build",
-    "api:start": "cd udagram-api && npm run dev",
-    "api:deploy": "cd udagram-api && npm run deploy",
-    "deploy": "npm run api:deploy && npm run frontend:deploy"
+    "frontend:install": "cd udagram-frontend && npm install -f && cd ..",
+    "frontend:start": "cd udagram-frontend && npm run start && cd ..",
+    "frontend:build": "cd udagram-frontend && npm run build && cd ..",
+    "frontend:test": "cd udagram-frontend && npm run test && cd ..",
+    "frontend:e2e": "cd udagram-frontend && npm run e2e && cd ..",
+    "frontend:lint": "cd udagram-frontend && npm run lint && cd ..",
+    "frontend:deploy": "cd udagram-frontend && npm run deploy && cd ..",
+    "api:install": "cd udagram-api && npm install -f && cd ..",
+    "api:build": "cd udagram-api && npm run build && cd ..",
+    "api:start": "cd udagram-api && npm run dev && cd ..",
+    "api:deploy": "cd udagram-api && npm run deploy && cd ..",
+    "deploy": "npm run api:deploy && npm run frontend:deploy",
+    "eb-cli": "chmod +x udagram-api/bin/eb-cli.sh && udagram-api/bin/eb-cli.sh"
   }
 }

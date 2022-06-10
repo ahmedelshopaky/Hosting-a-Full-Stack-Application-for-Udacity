@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "",
   "engines": {
-    "node": "14.15.0"
+    "node": "16.15.0"
   },
   "main": "src/server.ts",
   "scripts": {
@@ -12,9 +12,10 @@
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "deploy": "npm install -f && chmod +x bin/eb.sh && bin/eb.sh && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh"
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
@@ -39,6 +40,7 @@
     "@types/bluebird": "^3.5.26",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.16.1",
+    "@types/jasmine": "^4.0.3",
     "@types/node": "^11.11.6",
     "@types/sequelize": "^4.27.44",
     "@types/validator": "^10.9.0",
@@ -48,6 +50,8 @@
     "chai-http": "^4.2.1",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
+    "jasmine": "^4.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "mocha": "^6.1.4",
     "ts-node-dev": "^1.0.0-pre.32",
     "typescript": "^3.9.10"
